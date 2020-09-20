@@ -1,9 +1,20 @@
 package com.accenture.prebootcamp.tictactoe;
 
+import java.util.Scanner;
+
 public class HelloWorld {
     public static void main(String[] args) {
-        System.out.println("hello, World!");
+        Scanner oneMove=new Scanner(System.in);
+        int moveAdd;
 
-        System.out.println("and again");
+        Moves AllMoves=new Moves();
+        GameField newGame=new GameField();
+        newGame.printField(AllMoves.FillEmpty());
+        do{
+            System.out.println("Your move is ");
+            moveAdd=oneMove.nextInt();
+            newGame.printField(AllMoves.NextMove(((moveAdd-moveAdd%10)/10)%10,moveAdd%10));
+        }while (moveAdd!=0);
+
     }
 }
