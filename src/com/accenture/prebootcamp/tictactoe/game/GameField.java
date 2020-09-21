@@ -1,4 +1,4 @@
-package com.accenture.prebootcamp.tictactoe;
+package com.accenture.prebootcamp.tictactoe.game;
 
 public class GameField {
  void printField(String positions[][]){

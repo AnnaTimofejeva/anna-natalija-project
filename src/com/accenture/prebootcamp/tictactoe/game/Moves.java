@@ -1,4 +1,4 @@
-package com.accenture.prebootcamp.tictactoe;
+package com.accenture.prebootcamp.tictactoe.game;
 
 public class Moves {
 private String[][] moves=new String[3][3];
