@@ -11,8 +11,8 @@ private String[][] moves=new String[3][3];
         }
         return moves;
     }
-    String[][]NextMove(int x, int y){
-        moves[x-1][y-1]="X";
+    String[][]NextMove(int x, int y, String sign){
+        moves[x-1][y-1]=sign;
         return moves;
     }
 }

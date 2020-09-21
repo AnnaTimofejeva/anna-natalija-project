@@ -15,7 +15,7 @@ public class Game {
             moveAdd=oneMove.nextLine();
             int x=Integer.parseInt(moveAdd.substring(0,1));
             int y=Integer.parseInt(moveAdd.substring(1,2));
-            newGame.printField(AllMoves.NextMove(x,y));
+            newGame.printField(AllMoves.NextMove(x,y,"O"));
         }while (moveAdd!="Stop");
 
     }
