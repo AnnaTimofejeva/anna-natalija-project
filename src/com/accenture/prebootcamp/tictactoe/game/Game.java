@@ -11,7 +11,7 @@ public class Game {
         GameField newGame=new GameField();
         newGame.printField(AllMoves.FillEmpty());
         do{
-            System.out.println("Your move is ");
+            System.out.println("Your move ");
             moveAdd=oneMove.nextLine();
             int x=Integer.parseInt(moveAdd.substring(0,1));
             int y=Integer.parseInt(moveAdd.substring(1,2));
