@@ -8,3 +8,7 @@
      After 5th move program starts evaluating outcomes.
 
  2) Write multiple examples of user inputs and outputs, similar as you saw in exercise E.3.
+
+  It is possible for users:
+  1. to input X or O with place coordinates
+  2. to print out the field
