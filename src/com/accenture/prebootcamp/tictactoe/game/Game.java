@@ -5,16 +5,18 @@ import java.util.Scanner;
 public class Game {
     public static void main(String[] args) {
         Scanner oneMove=new Scanner(System.in);
-        int moveAdd;
+        String moveAdd;
 
         Moves AllMoves=new Moves();
         GameField newGame=new GameField();
         newGame.printField(AllMoves.FillEmpty());
         do{
             System.out.println("Your move is ");
-            moveAdd=oneMove.nextInt();
-            newGame.printField(AllMoves.NextMove(((moveAdd-moveAdd%10)/10)%10,moveAdd%10));
-        }while (moveAdd!=0);
+            moveAdd=oneMove.nextLine();
+            int x=Integer.parseInt(moveAdd.substring(0,1));
+            int y=Integer.parseInt(moveAdd.substring(1,2));
+            newGame.printField(AllMoves.NextMove(x,y));
+        }while (moveAdd!="Stop");
 
     }
 }
