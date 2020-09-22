@@ -20,7 +20,7 @@ private String[][] moves=new String[3][3];
         }else{
             sign="O";
         }
-//validity check. Check for viable numbers and epmty array slot
+//validity check. Check for viable numbers and empty array slot
         if ((x<=3)&&(y<=3)&&(moves[x-1][y-1]==" ")){
             moves[x-1][y-1]=sign;
 
@@ -55,7 +55,7 @@ private String[][] moves=new String[3][3];
                 }
             }
             if (check==3){
-                return Boolean.TRUE;
+                return true;
             }else{
                 check=0;
             }
@@ -68,7 +68,7 @@ private String[][] moves=new String[3][3];
                 }
             }
             if (check==3){
-                return Boolean.TRUE;
+                return true;
             }else{
                 check=0;
             }
@@ -80,7 +80,7 @@ private String[][] moves=new String[3][3];
                 }
             }
             if (check==3){
-                return Boolean.TRUE;
+                return true;
             }else{
                 check=0;
             }
@@ -91,11 +91,11 @@ private String[][] moves=new String[3][3];
             }
         }
         if (check==3){
-            return Boolean.TRUE;
+            return true;
         }else{
             check=0;
         }
 //no win
-        return Boolean.FALSE;
+        return false;
     }
 }
