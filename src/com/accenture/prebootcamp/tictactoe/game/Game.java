@@ -34,7 +34,7 @@ public static int mainPlNr=1;
             }else{
                 Game.mainPlNr=2;
             }
-        }while (moveAdd!="Stop");
+        }while (moveAdd!="Stop"); // we don`t have Stop option, players can put only coordinates. Here is possible to write - while (true)
 
     }
 }

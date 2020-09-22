@@ -21,7 +21,7 @@ private String[][] moves=new String[3][3];
             sign="O";
         }
 //validity check. Check for viable numbers and empty array slot
-        if ((x<=3)&&(y<=3)&&(moves[x-1][y-1]==" ")){
+        if (x<=3 && y<=3 && x>0 && y>0 && (moves[x-1][y-1]==" ")){
             moves[x-1][y-1]=sign;
 
         }else{
