@@ -25,7 +25,11 @@ public class Game {
             int y = Integer.parseInt(userInput.trim().substring(1, 2));
 
             String playerMarker = marker(gameState);
-            board.makeMove(x, y, playerMarker);
+
+            if (!board.makeMove(x, y, playerMarker)) {
+                System.out.println("Wrong coordinates! Try again!");
+                continue;
+            }
 
             if (board.hasWinner(playerMarker)) {
                 System.out.println("P" + currentPlayer + " wins!");

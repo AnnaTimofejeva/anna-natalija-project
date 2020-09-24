@@ -18,12 +18,12 @@ class Board {
         System.out.println("3 " + board[2][0] + " | " + board[2][1] + " | " + board[2][2] + " ");
     }
 
-    void makeMove(int x, int y, String sign) {
+    boolean makeMove(int x, int y, String sign) {
         if (x <= 3 && y <= 3 && x > 0 && y > 0 && (board[x - 1][y - 1] == " ")) {
             board[x - 1][y - 1] = sign;
-        } else {
-            System.out.println("Wrong coordinates! Try again!");
+            return true;
         }
+        return false;
     }
 
     //TODO 6) Don't use == or != to compare strings! Always use .equals!
