@@ -3,38 +3,52 @@ package com.accenture.prebootcamp.tictactoe.game;
 import java.util.Scanner;
 
 public class Game {
-public static int mainPlNr=1;
+
     public static void main(String[] args) {
-        Scanner oneMove=new Scanner(System.in);
-        String moveAdd;
+        Scanner scanner = new Scanner(System.in);
 
-        Moves AllMoves=new Moves();
-        GameField newGame=new GameField();
-//draw empty game field
-        newGame.printField(AllMoves.FillEmpty());
+        String userInput;
 
-//Start the game
+        Board board = new Board();
+        boolean gameState = true;
+
         do{
-            System.out.println("Your move P"+mainPlNr);
-            moveAdd=oneMove.nextLine();
-//determine first coordinate
-            int x=Integer.parseInt(moveAdd.trim().substring(0,1));
-//determine second coordinate
-            int y=Integer.parseInt(moveAdd.trim().substring(1,2));
-//Draw game Filed with new move
-            newGame.printField(AllMoves.NextMove(x,y,mainPlNr));
-//Check for the win
-            if (AllMoves.Winner(mainPlNr)){
-                System.out.println("P"+mainPlNr+" wins!");
+            int currentPlayer = number(gameState);
+
+            System.out.println("Your move - player " + currentPlayer);
+            userInput = scanner.nextLine();
+
+            //TODO 1) Change so user would have to input space between numbers. For example:
+            //     1 1
+            //     instead of:
+            //     11
+
+            int x=Integer.parseInt(userInput.trim().substring(0,1));
+            int y=Integer.parseInt(userInput.trim().substring(1,2));
+
+            String playMaker = marker(gameState);
+
+            if (!board.makeMove(x, y, playMaker)) {
+                System.out.println("Wrong coordinates! Try again!");
+                continue;
+            }
+
+            if (board.hasWinner(playMaker)) {
+                System.out.println("P" + currentPlayer + " wins!");
                 break;
             }
-//Change player
-            if (Game.mainPlNr==2){
-                Game.mainPlNr=1;
-            }else{
-                Game.mainPlNr=2;
-            }
-        }while (moveAdd!="Stop"); // we don`t have Stop option, players can put only coordinates. Here is possible to write - while (true)
+            gameState = !gameState;
+            board.print();
 
+        } while (!"stop".equalsIgnoreCase(userInput));
     }
+
+    static String marker(boolean playerSwitch) {
+        return playerSwitch ? "X" : "0";
+    }
+
+    static int number(boolean playerSwitch) {
+        return playerSwitch ? 1 : 2;
+    }
+
 }
