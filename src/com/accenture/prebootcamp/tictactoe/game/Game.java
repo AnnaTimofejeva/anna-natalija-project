@@ -22,10 +22,16 @@ public class Game {
             //     1 1
             //     instead of:
             //     11
-
-            int x=Integer.parseInt(userInput.trim().substring(0,1));
-            int y=Integer.parseInt(userInput.trim().substring(1,2));
-
+            int lastCh=userInput.length();
+            int x;
+            int y;
+            try {
+                x = Integer.parseInt(userInput.trim().substring(0, 1));
+                y = Integer.parseInt(userInput.trim().substring(lastCh - 1, lastCh));
+            } catch (Exception e){
+                System.out.println("Check your input! Use Row Space Column e.g. 1 2");
+                continue;
+            }
             String playMaker = marker(gameState);
 
             if (!board.makeMove(x, y, playMaker)) {
