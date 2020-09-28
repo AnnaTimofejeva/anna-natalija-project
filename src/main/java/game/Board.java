@@ -1,4 +1,4 @@
-package com.accenture.prebootcamp.tictactoe.game;
+package main.java.game;
 
 public class Board {
     private String[][] board = new String[3][3];
@@ -79,6 +79,7 @@ public class Board {
 
         return false;
     }
+
     private void reset() {
         for (int i = 0; i < 3; i++) {
             for (int y = 0; y < 3; y++) {

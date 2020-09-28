@@ -1,4 +1,4 @@
-package com.accenture.prebootcamp.tictactoe.game;
+package main.java.game;
 
 import java.util.Scanner;
 
