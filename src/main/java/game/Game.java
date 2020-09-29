@@ -11,25 +11,21 @@ public class Game {
 
         Board board = new Board();
         boolean gameState = true;
-        int move=0;
+        int move=1;
         do{
 
             int currentPlayer = number(gameState);
-            System.out.println(move);
             System.out.println("Your move - player " + currentPlayer);
             userInput = scanner.nextLine();
 
-            //TODO 1) Change so user would have to input space between numbers. For example:
-            //     1 1
-            //     instead of:
-            //     11
             int x, y;
 
             if (isCorrectInput(userInput)){
-                x = Integer.parseInt(userInput.trim().substring(0, 1));
-                y = Integer.parseInt(userInput.trim().substring(2, 3));
+                x = Integer.parseInt(userInput.substring(0, 1));
+                y = Integer.parseInt(userInput.substring(2, 3));
             } else {
                 System.out.println("Check your input! You should input 3 characters - RowNr Space ColumnNr e.g. 1 2");
+
                 continue;
             }
 
@@ -49,7 +45,7 @@ public class Game {
             board.print();
             move++;
 
-        } while (move<9);
+        } while (move<=9);
         if (move==9){
             System.out.println("It is a draw!");
         }
@@ -69,7 +65,8 @@ public class Game {
         } catch (NumberFormatException ex) {
             return false;
         }
-        return input.length() == 3 && input.replace(" ", "").length() == 2;
+
+        return input.substring(1,2).equals(" ") && input.replace(" ", "").length() == 2;
     }
 
 
