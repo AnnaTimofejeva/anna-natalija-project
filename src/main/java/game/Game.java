@@ -11,10 +11,11 @@ public class Game {
 
         Board board = new Board();
         boolean gameState = true;
-        int move=1;
+        int move=0;
         do{
-            int currentPlayer = number(gameState);
 
+            int currentPlayer = number(gameState);
+            System.out.println(move);
             System.out.println("Your move - player " + currentPlayer);
             userInput = scanner.nextLine();
 
@@ -24,7 +25,7 @@ public class Game {
             //     11
             int x, y;
 
-            if (isNumeric(userInput)&&userInput.replace(" ","").length()==2){
+            if (isCorrectInput(userInput)){
                 x = Integer.parseInt(userInput.trim().substring(0, 1));
                 y = Integer.parseInt(userInput.trim().substring(2, 3));
             } else {
@@ -46,9 +47,12 @@ public class Game {
             }
             gameState = !gameState;
             board.print();
+            move++;
 
-        } while (++move<9);
-        System.out.println("It is a draw!");
+        } while (move<9);
+        if (move==9){
+            System.out.println("It is a draw!");
+        }
     }
 
     static String marker(boolean playerSwitch) {
@@ -59,13 +63,13 @@ public class Game {
         return playerSwitch ? 1 : 2;
     }
 
-    private static boolean isNumeric(String input) {
+    private static boolean isCorrectInput(String input) {
         try {
             Integer.parseInt(input.replace(" ",""));
         } catch (NumberFormatException ex) {
             return false;
         }
-        return true;
+        return input.length() == 3 && input.replace(" ", "").length() == 2;
     }
 
 
