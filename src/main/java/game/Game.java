@@ -11,8 +11,8 @@ public class Game {
 
         Board board = new Board();
         boolean gameState = true;
-        int move=1;
-        do{
+        int move = 1;
+        do {
 
             int currentPlayer = number(gameState);
             System.out.println("Your move - player " + currentPlayer);
@@ -20,7 +20,7 @@ public class Game {
 
             int x, y;
 
-            if (isCorrectInput(userInput)){
+            if (isCorrectInput(userInput)) {
                 x = Integer.parseInt(userInput.substring(0, 1));
                 y = Integer.parseInt(userInput.substring(2, 3));
             } else {
@@ -45,8 +45,8 @@ public class Game {
             board.print();
             move++;
 
-        } while (move<=9);
-        if (move==9){
+        } while (move <= 9);
+        if (move == 9) {
             System.out.println("It is a draw!");
         }
     }
@@ -59,15 +59,13 @@ public class Game {
         return playerSwitch ? 1 : 2;
     }
 
+
     private static boolean isCorrectInput(String input) {
         try {
-            Integer.parseInt(input.replace(" ",""));
+            Integer.parseInt(input.replace(" ", ""));
         } catch (NumberFormatException ex) {
             return false;
         }
-
-        return input.substring(1,2).equals(" ") && input.replace(" ", "").length() == 2;
+        return input.substring(1, 2).equals(" ") && input.replace(" ", "").length() == 2;
     }
-
-
 }
