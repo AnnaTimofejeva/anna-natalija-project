@@ -24,11 +24,15 @@ public class Game {
             //     instead of:
             //     11
             int lastCh=userInput.length();
+
             int x;
             int y;
             try {
+                lastCh = 3;
+
                 x = Integer.parseInt(userInput.trim().substring(0, 1));
                 y = Integer.parseInt(userInput.trim().substring(lastCh - 1, lastCh));
+
             } catch (Exception e){
                 System.out.println("Check your input! Use Row Space Column e.g. 1 2");
                 move--;
