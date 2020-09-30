@@ -66,6 +66,6 @@ public class Game {
         } catch (NumberFormatException ex) {
             return false;
         }
-        return input.substring(1, 2).equals(" ") && input.replace(" ", "").length() == 2;
+        return input.length()==3&&input.substring(1, 2).equals(" ") && input.replace(" ", "").length() == 2;
     }
 }
